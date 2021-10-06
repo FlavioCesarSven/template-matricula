@@ -23,7 +23,6 @@
 
     <div class="right-sidebar">
         <?php include_once './includes/s_sidebar.php.php'; ?>
-
     </div>
 
     <div class="left-side-bar">
@@ -70,14 +69,14 @@
                     <div class="pb-20">
                     <!-- Button trigger modal -->
                         <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#w_programa">
+                            <button type="button" onclick="abrirModal()" class="btn btn-primary">
                                 <i class="micon dw dw-add"></i> Agregar
                             </button>
                         </div>
 
                         <?php include_once './modales/m_programa.php'; ?>
 
-                        <table class="table hover multiple-select-row data-table-export nowrap">
+                        <table class="table  data-table-export wrap">
                             <thead>
                                 <tr>
                                     <th class="table-plus datatable-nosort">ID</th>
@@ -89,7 +88,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($result as  $row) {
+                                foreach ($result as $row) {
 
                                 ?>
                                     <tr>
@@ -104,8 +103,8 @@
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Editar</a>
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Eliminar</a>
+                                                    <a class="dropdown-item" onclick="editarPrograma(<?php echo $row["idprograma"] ?> )"><i class="dw dw-edit2"></i> Editar</a>
+                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idprograma"] ?> )" title="Eliminar <?php echo $row["nomb_pro"]?>" ><i class="dw dw-delete-3"></i> Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -131,5 +130,7 @@
     </div>
 
     <?php include_once './includes/s_js.php'; ?>
+</body>
+    <script src="../js/js_programa.js"></script>
 
 </html>

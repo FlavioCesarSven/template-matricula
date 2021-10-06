@@ -17,4 +17,5 @@
 <script src="src/plugins/datatables/js/vfs_fonts.js"></script>
 <!-- Datatable Setting js -->
 <script src="vendors/scripts/datatable-setting.js"></script>
+<script src="src/plugins/sweetalert2/sweetalert2.js"></script>
 </body>

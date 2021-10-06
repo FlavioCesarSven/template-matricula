@@ -36,7 +36,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <h3>Bienvenido al Panel Admnistrativo</h3>
+                            <h3>Bienvenido al Panel Administrativo</h3>
                         </div>
                     </div>
                     <div class="row">

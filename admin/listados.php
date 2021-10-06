@@ -33,8 +33,8 @@
 
     <div class="main-container">
         <div class="pd-ltr-20 xs-pd-20-10">
-                        <!-- Main content -->
-                        <section class="content">
+            <!-- Main content -->
+            <section class="content">
                 <div class="container-fluid">
                     <div class="row">
                     <div class="col-12">

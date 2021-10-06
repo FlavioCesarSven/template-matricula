@@ -5,15 +5,15 @@
     <div class="header-search">
         <form>
             <div class="form-group mb-0">
-                <i class="dw dw-search2 search-icon"></i>
+                <!-- <i class="dw dw-search2 search-icon"></i> -->
 
-                <input type="text" class="form-control search-input" placeholder="Búscar...">
+                <!-- <input type="text" class="form-control search-input" placeholder="Búscar...">
 
                 <div class="dropdown">
                     <a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
                         <i class="ion-arrow-down-c"></i>
                     </a>
-                </div>
+                </div> -->
             </div>
         </form>
     </div>
@@ -28,7 +28,7 @@
                 <span class="user-icon">
                     <img src="vendors/images/photo1.jpg" alt="">
                 </span>
-                <span class="user-name">Ross C. Lopez</span>
+                <span class="user-name">Flavio Cesar Ps</span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
