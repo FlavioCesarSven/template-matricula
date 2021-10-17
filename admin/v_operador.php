@@ -69,14 +69,14 @@
                     </div>
                     <div class="pb-20">
                          <!-- Button trigger modal -->
-                    <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#w_programa">
-                            <i class="micon dw dw-add"></i> Agregar
-                        </button>
-                    </div>
+                         <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
+                            <button type="button" onclick="abrirModal()" class="btn btn-primary">
+                                <i class="micon dw dw-add"></i> Agregar
+                            </button>
+                        </div>
 
                     <?php include_once './modales/m_operador.php'; ?> 
-                        <table class="table multiple-select-row data-table-export nowrap">
+                        <table class="table  data-table-export nowrap">
                             <thead>
                                 <tr>
                                     <th class="table-plus datatable-nosort">ID</th>
@@ -101,8 +101,8 @@
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Editar</a>
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Eliminar</a>
+                                                    <a class="dropdown-item" onclick="editarPrograma(<?php echo $row["idoperador"] ?> )" style="cursor: pointer;"></i> Editar</a>
+                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idoperador"] ?> )" title="Eliminar <?php echo $row["nomb_ope"]?>" style="cursor: pointer;"></i> Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -128,5 +128,7 @@
     </div>
 
     <?php include_once './includes/s_js.php'; ?>
+    </body>
+    <script src="../js/js_operador.js"></script>
 
 </html>

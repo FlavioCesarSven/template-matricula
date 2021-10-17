@@ -103,8 +103,8 @@
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" onclick="editarPrograma(<?php echo $row["idprograma"] ?> )"><i class="dw dw-edit2"></i> Editar</a>
-                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idprograma"] ?> )" title="Eliminar <?php echo $row["nomb_pro"]?>" ><i class="dw dw-delete-3"></i> Eliminar</a>
+                                                    <a class="dropdown-item" onclick="editarPrograma(<?php echo $row["idprograma"] ?> )" style="cursor: pointer;"><i class="dw dw-edit2"></i> Editar</a>
+                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idprograma"] ?> )" title="Eliminar <?php echo $row["nomb_pro"]?>" style="cursor: pointer;"><i class="dw dw-delete-3"></i> Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>

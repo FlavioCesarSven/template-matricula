@@ -77,7 +77,7 @@
                         </button>
                     </div>
                     <?php include_once './modales/m_matricula.php'; ?>
-                        <table class="table multiple-select-row data-table-export wrap">
+                        <table class="table  data-table-export wrap">
                             <thead>
                                 <tr>
                                     <th class="table-plus">ID</th>

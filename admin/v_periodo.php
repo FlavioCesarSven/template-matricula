@@ -27,7 +27,7 @@
     </div>
 
     <div class="left-side-bar">
-    <?php include_once './includes/s_navbar.php'; ?>
+        <?php include_once './includes/s_navbar.php'; ?>
     </div>
     <div class="mobile-menu-overlay"></div>
 
@@ -69,20 +69,21 @@
                     </div>
                     <div class="pb-20">
 
-                    <!-- Button trigger modal -->
-                    <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#w_programa">
-                            <i class="micon dw dw-add"></i> Agregar
-                        </button>
-                    </div>
+                        <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
+                            <button type="button" onclick="abrirModal()" class="btn btn-primary">
+                                <i class="micon dw dw-add"></i> Agregar
+                            </button>
+                        </div>
 
-                    <?php include_once './modales/m_periodo.php'; ?>
+                        <?php include_once './modales/m_periodo.php'; ?>
 
-                        <table class="table hover multiple-select-row data-table-export nowrap">
+                        <table class="table data-table-export nowrap">
                             <thead>
                                 <tr>
                                     <th class="table-plus datatable-nosort">ID</th>
                                     <th>Nombre</th>
+                                    <th>Fecha de Inicio</th>
+                                    <th>Fecha de Finalización</th>
                                     <th>Estado</th>
                                     <th class="datatable-nosort">Opciones</th>
                                 </tr>
@@ -95,6 +96,8 @@
                                     <tr>
                                         <td><?php echo $row["idperiodo"] ?></td>
                                         <td><?php echo $row["nomb_per"] ?></td>
+                                        <td><?php echo $row["fini_per"] ?></td>
+                                        <td><?php echo $row["ffin_per"] ?></td>
                                         <td><?php echo $row["estd_per"] ?></td>
 
                                         <td>
@@ -103,8 +106,8 @@
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Editar</a>
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i>Eliminar</a>
+                                                    <a class="dropdown-item" onclick="editarPrograma(<?php echo $row["idperiodo"] ?> )" style="cursor: pointer;"><i class="dw dw-edit2"></i> Editar</a>
+                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["nomb_per"] ?> )" title="Eliminar <?php echo $row["nomb_per"]?>" style="cursor: pointer;"><i class="dw dw-delete-3"></i>Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -117,19 +120,18 @@
                     </div>
                 </div>
                 <!-- Simple Datatable End -->
-
                 <!-- Checkbox select Datatable End -->
-
             </div>
-
 
             <div class="footer-wrap pd-20 mb-20 card-box">
-               <?php  include_once './includes/s_footer.php'; ?>
+                <?php include_once './includes/s_footer.php'; ?>
             </div>
         </div>
-        </div>
+    </div>
     </div>
 
     <?php include_once './includes/s_js.php'; ?>
+</body>
+<script src="../js/js_periodo.js"></script>
 
 </html>

@@ -67,6 +67,7 @@ function guardarRegistro(){
 }
 
 function editarPrograma( idoper ){
+    
     setTimeout( function () {
         $('#inputNombre').focus();
     }, 1000 );
@@ -89,7 +90,7 @@ function editarPrograma( idoper ){
             $('#inputFinicio').val( datos.fini_per);
             $('#inputFinal').val( datos.ffin_per);
 
-            if( datos.estd_pro == 'A' ){
+            if( datos.estd_per == 'A' ){
                 $('#inputEstado').attr('checked', true);
             }else{
                 $('#inputEstado').attr('checked', false);
@@ -105,6 +106,7 @@ function editarPrograma( idoper ){
     });  
     
 }
+
 
 function actualizarPagina(){
     window.location.reload();

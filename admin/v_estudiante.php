@@ -67,16 +67,17 @@
                     <div class="pd-20">
                         <h4 class="text-blue h4">Estudiantes Registrados: <?php echo mysqli_num_rows($result); ?></h4>
                     </div>
+
                     <div class="pb-20">
 
                         <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#w_programa">
+                            <button type="button" onclick="abrirModal()" class="btn btn-primary">
                                 <i class="micon dw dw-add"></i> Agregar
                             </button>
                         </div>
-                        
-                        <?php include_once './modales/m_student.php'; ?>
-                        <table class="table multiple-select-row data-table-export wrap">
+
+                        <?php include_once './modales/m_estudiante.php'; ?>
+                        <table class="table  data-table-export wrap">
                             <thead>
                                 <tr>
                                     <th class="table-plus">ID</th>
@@ -111,8 +112,8 @@
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Editar</a>
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Eliminar</a>
+                                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2" title="Actualizar"></i> Editar</a>
+                                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3" title="Eliminar"></i> Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -130,8 +131,6 @@
 
             </div>
 
-
-
             <div class="footer-wrap pd-20 mb-20 card-box">
                 <?php include_once './includes/s_footer.php'; ?>
             </div>
@@ -139,5 +138,9 @@
     </div>
 
     <?php include_once './includes/s_js.php'; ?>
+
+</body>
+<script src="../js/js_estudiante.js"></script>
+
 
 </html>
