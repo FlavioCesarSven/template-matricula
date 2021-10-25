@@ -92,7 +92,7 @@ class cProgramasM
             error_reporting(E_ALL & ~E_NOTICE);
             $oConn = new connMysql();
             $mysqli = $oConn->getConnection();
-            $sql = "update tb_programa set nomb_pro=?,  desc_pro=?, estd_pro=? where idprograma=?";
+            $sql = "update tb_programa set nomb_pro=?, desc_pro=?, estd_pro=? where idprograma=?";
             $stmt = $mysqli->prepare($sql);
 
             $stmt->bind_param(

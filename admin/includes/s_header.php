@@ -26,14 +26,14 @@
 
             <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                 <span class="user-icon">
-                    <img src="vendors/images/photo1.jpg" alt="">
+                    <img src="../<?php echo $_SESSION["foto_usu"]; ?>" alt="User Image">
                 </span>
-                <span class="user-name">Flavio Cesar Ps</span>
+                <span class="user-name">Sesion de <?php echo $_SESSION["usuario"]; ?> | Área:  <?php echo $_SESSION["nomb_are"]; ?></span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Configuración</a>
-                <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Cerrar Sesión</a>
+                <a class="dropdown-item" href="#"><i class="dw dw-user1"></i> Configuración</a>
+                <a class="dropdown-item" href="../controller/cUsuarioC.php?inputAccion=CerrarSesion"><i class="dw dw-settings2"></i> Cerrar Sesión</a>
             </div>
 
         </div>

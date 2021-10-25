@@ -1,3 +1,15 @@
+<?php 
+
+    ob_start();
+    session_start();
+
+    if (!isset($_SESSION["usuario"])  ) {
+        header("Location:login.php");
+    }else{
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +38,7 @@
     </div>
 
     <div class="left-side-bar">
-    <?php include_once './includes/s_navbar.php'; ?>
+        <?php include_once './includes/s_navbar.php'; ?>
     </div>
     <div class="mobile-menu-overlay"></div>
 
@@ -67,7 +79,7 @@
                         <h4 class="text-blue h4">Programas Registrados: <?php echo mysqli_num_rows($result); ?></h4>
                     </div>
                     <div class="pb-20">
-                    <!-- Button trigger modal -->
+                        <!-- Button trigger modal -->
                         <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
                             <button type="button" onclick="abrirModal()" class="btn btn-primary">
                                 <i class="micon dw dw-add"></i> Agregar
@@ -88,11 +100,12 @@
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($result as $row) {
+                                    $index = 1;
+                                    foreach ($result as $row) {
 
                                 ?>
                                     <tr>
-                                        <td><?php echo $row["idprograma"] ?></td>
+                                        <td><?php echo $index++ ?></td>
                                         <td><?php echo $row["nomb_pro"] ?></td>
                                         <td><?php echo $row["desc_pro"] ?></td>
                                         <td><?php echo $row["estd_pro"] ?></td>
@@ -104,7 +117,7 @@
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                                     <a class="dropdown-item" onclick="editarPrograma(<?php echo $row["idprograma"] ?> )" style="cursor: pointer;"><i class="dw dw-edit2"></i> Editar</a>
-                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idprograma"] ?> )" title="Eliminar <?php echo $row["nomb_pro"]?>" style="cursor: pointer;"><i class="dw dw-delete-3"></i> Eliminar</a>
+                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idprograma"] ?> )" title="Eliminar <?php echo $row["nomb_pro"] ?>" style="cursor: pointer;"><i class="dw dw-delete-3"></i> Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -114,6 +127,7 @@
                                 ?>
                             </tbody>
                         </table>
+
                     </div>
                 </div>
                 <!-- Simple Datatable End -->
@@ -124,13 +138,20 @@
 
 
             <div class="footer-wrap pd-20 mb-20 card-box">
-               <?php  include_once './includes/s_footer.php'; ?>
+                <?php include_once './includes/s_footer.php'; ?>
             </div>
         </div>
     </div>
 
     <?php include_once './includes/s_js.php'; ?>
 </body>
-    <script src="../js/js_programa.js"></script>
+<script src="../js/js_programa.js"></script>
 
 </html>
+
+<?php 
+
+} 
+ob_end_flush();
+
+?>

@@ -87,11 +87,12 @@
                             </thead>
                             <tbody>
                                 <?php
+                                $index = 1;
                                 foreach ($result as  $row) {
 
                                 ?>
                                     <tr>
-                                        <td><?php echo $row["idoperador"] ?></td>
+                                        <td><?php echo $index++ ?></td>
                                         <td><?php echo $row["nomb_ope"] ?></td>
                                         <td><?php echo $row["estd_ope"] ?></td>
 

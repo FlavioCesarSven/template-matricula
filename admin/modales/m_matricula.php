@@ -4,9 +4,7 @@
         <form class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
             </div>
             <div class="modal-body">
 
@@ -14,111 +12,136 @@
                     <div class="wizard-content">
                         <div class="tab-wizard wizard-circle wizard">
                             <section>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="inputID">ID :</label>
-                                            <input type="text" class="form-control" type="text" placeholder="ID" id="inputID" name="inputID">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="inputNombre">Nombres</label>
-                                            <input class="form-control" type="text" placeholder="Ingrese nombres" id="inputNombre" name="inputNombre">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="inputApellido">Apellidos</label>
-                                            <input class="form-control" type="text" placeholder="Ingrese apellidos" id="inputApellido" name="inputApellido">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                
-                                <div class="row">
-                                
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Fecha de Nacimiento</label>
-                                            <input class="form-control datetimepicker-range" placeholder="Seleccione fecha" type="text">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Género :</label>
-                                            <select class="form-control">
-                                                <option>Seleccione Genero</option>
-                                                <option>Masculino</option>
-                                                <option>Femenino</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label>Seleccione Especialidad :</label>
-                                            <select class="form-control">
-                                                <option>Seleccione Especialidad</option>
-                                                <option>Computacion e Informatica</option>
-                                                <option>Enfermeria</option>
-                                                <option>Contabilidad</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="row">
 
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Ciclo :</label>
-                                            <select class="form-control">
-                                                <option>Seleccione Ciclo</option>
-                                                <option>I</option>
-                                                <option>II</option>
-                                                <option>III</option>
-                                            </select>
+                                            <div class="col-lg-2 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputID">ID</label>
+                                                    <input type="text" class="form-control" id="inputID" name="inputID" readonly>
+                                                    <input type="hidden" class="form-control" id="inputAccion" name="inputAccion">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-5 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputNombres">Nombres (*)</label>
+                                                    <input type="text" class="form-control" id="inputNombres" name="inputNombres" placeholder="Nombres" maxlength="60">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-5 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputApellidos">Apellidos (*)</label>
+                                                    <input type="text" class="form-control" id="inputApellidos" name="inputApellidos" placeholder="Apellidos" maxlength="60">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputFecNac">Fech. Nacimiento</label>
+                                                    <input type="date" class="form-control" id="inputFecNac" name="inputFecNac">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputSexo">Sexo (*)</label>
+                                                    <select name="inputSexo" id="inputSexo" class="form-control">
+                                                        <option selected disabled>Seleccione</option>
+                                                        <option value="M">Masculino</option>
+                                                        <option value="F">Femenino</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-sm-12">
+                                                <?php
+                                                require_once '../controller/cProgramasC.php';
+                                                $oProgC = new cProgramasC();
+                                                $result2 = $oProgC->listar();
+
+                                                foreach ($result2 as $row) {
+                                                }
+                                                ?>
+
+                                                <div class="form-group">
+                                                    <label for="inputPrograma">Programa de Estudio (*)</label>
+                                                    <select name="inputPrograma" id="inputPrograma" class="form-control">
+
+                                                        <option selected disabled>Seleccione</option>
+                                                        <?php
+                                                        foreach ($result2 as $row) {
+                                                        ?>
+                                                            <option value="<?php echo $row["idprograma"] ?>"><?php echo $row["nomb_pro"] ?></option>
+                                                        <?php  } ?>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-4 col-sm-12">
+
+                                                <div class="form-group">
+                                                    <label for="inputPeriodo">Ciclo (*)</label>
+                                                    <select name="inputPeriodo" id="inputPeriodo" class="form-control">
+
+                                                        <option selected disabled>Seleccione Ciclo</option>
+                                                        
+                                                            <option value="I">I</option>
+                                                            <option value="II">II</option>
+                                                            <option value="II">III</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-12"">
+                                                <div class=" form-group">
+                                                    <label>Turno </label>
+                                                    <select class="form-control">
+                                                        <option selected disabled>Seleccione Turno</option>
+                                                        <option>A</option>
+                                                        <option>B</option>
+                                                        <option>C</option>
+                                                </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="inputEstado" name="inputEstado" value="A">
+                                                    <label class="form-check-label" for="inputEstado">Estado</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12" id="msg">
                                         </div>
                                     </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Turno :</label>
-                                            <select class="form-control">
-                                                <option>Seleccione Turno</option>
-                                                <option>A</option>
-                                                <option>B</option>
-                                                <option>C </option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Estado :</label>
-                                            <select class="form-control">
-                                                <option>Seleccione Estado</option>
-                                                <option>N</option>
-                                                <option>I</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
                                 </div>
-                            </section>
+
+                                <div class="col-lg-2"></div>
                         </div>
-                    </div>
+                   </div>
                 </div>
-
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </form>
 
     </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+    </form>
+
+</div>
 </div>
 </div>

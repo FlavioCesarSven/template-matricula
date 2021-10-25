@@ -1,3 +1,16 @@
+<!-- <?php 
+
+// ob_start();
+session_start();
+
+if (!isset($_SESSION["usuario"])  ) {
+    header("Location:login.php");
+}else{
+
+
+?> -->
+
+
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +33,7 @@
         <?php include_once './includes/s_header.php'; ?>
         
     </div>
-    
+
     <div class="right-sidebar">
         <?php include_once './includes/s_sidebar.php.php'; ?>
 
@@ -59,3 +72,9 @@
     <?php include_once './includes/s_js.php'; ?>
 
 </html>
+
+<?php 
+
+} ob_end_flush();
+
+?>

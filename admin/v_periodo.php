@@ -90,11 +90,12 @@
                             </thead>
                             <tbody>
                                 <?php
+                                $index = 1;
                                 foreach ($result as  $row) {
 
                                 ?>
                                     <tr>
-                                        <td><?php echo $row["idperiodo"] ?></td>
+                                        <td><?php echo $index++ ?></td>
                                         <td><?php echo $row["nomb_per"] ?></td>
                                         <td><?php echo $row["fini_per"] ?></td>
                                         <td><?php echo $row["ffin_per"] ?></td>

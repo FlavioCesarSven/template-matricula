@@ -1,3 +1,15 @@
+<?php 
+
+ob_start();
+session_start();
+
+if (!isset($_SESSION["usuario"])  ) {
+    header("Location:login.php");
+}else{
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -100,7 +112,7 @@
                                     <tr>
                                         <td><?php echo $row["idestudiante"] ?></td>
                                         <td><?php echo $row["ndni_est"] ?></td>
-                                        <td><?php echo $row["nombres"] ?></td>
+                                        <td><?php echo $row["ESTUDIANTE"] ?></td>
                                         <td><?php echo $fecha ?></td>
                                         <td><?php echo $row["sexo_est"] ?></td>
                                         <td><?php echo $row["nomb_pro"] ?></td>
@@ -144,3 +156,9 @@
 
 
 </html>
+
+<?php 
+
+} ob_end_flush();
+
+?>

@@ -48,7 +48,7 @@
             </a>
             <ul class="submenu">
                 <li><a href="#">Configuración del Usuario</a></li>
-                <li><a href="#">Cerrar Sesión</a></li>
+                <li><a href="../controller/cUsuarioC.php?inputAccion=CerrarSesion">Cerrar Sesión</a></li>
             </ul>
         </li>
 

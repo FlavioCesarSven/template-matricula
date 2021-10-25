@@ -1,56 +1,54 @@
-<!-- SELECT idubigeo, CONCAT(ndep_ubi,'/',npro_ubi,'/', ndis_ubi) ubigeo FROM tb_ubiego WHERE ndep_ubi<>''  -->
-
+<!-- Modal -->
 <div class="modal fade" id="w_estudiante" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog " role="document" style="max-width: 90%;">
-        <form id="frm_estudiante" onsubmit="return guardarRegistro()">
+    <div class="modal-dialog" role="document" style="max-width: 90%;">
+        <form class="modal-content" id="frm_estudiante" onsubmit="return guardarRegistro()" autocomplete="off">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo_ventana">Modal title</h5>
+            </div>
+            <div class="modal-body">
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="titulo_ventana">Modal</h5>
+                <div class="pd-20 mb-30">
+                    <div class="wizard-content">
+                        <div class="tab-wizard wizard-circle wizard">
+                            <section>
 
-                </div>
-                <div class="modal-body">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">CAMPOS</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="row">
 
-                        <div class="card-body">
-
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="inputID">ID</label>
-                                                <input type="text" class="form-control" id="inputID" name="inputID" readonly>
-                                                <input type="hidden" class="form-control" id="inputAccion" name="inputAccion">
+                                            <div class="col-lg-2 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputID">ID</label>
+                                                    <input type="text" class="form-control" id="inputID" name="inputID" readonly>
+                                                    <input type="hidden" class="form-control" id="inputAccion" name="inputAccion">
+                                                </div>
                                             </div>
+
+                                            <div class="col-lg-2 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputDni">DNI (*)</label>
+                                                    <input type="text" class="form-control" id="inputDni" name="inputDni" placeholder="Dni" maxlength="8">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputApellidos">Apellidos (*)</label>
+                                                    <input type="text" class="form-control" id="inputApellidos" name="inputApellidos" placeholder="Apellidos" maxlength="60">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputNombres">Nombres (*)</label>
+                                                    <input type="text" class="form-control" id="inputNombres" name="inputNombres" placeholder="Nombres" maxlength="60">
+                                                </div>
+                                            </div>
+
+
                                         </div>
 
-                                        <div class="col-lg-2 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="inputDni">DNI (*)</label>
-                                                <input type="text" class="form-control" id="inputDni" name="inputDni" placeholder="Dni" maxlength="8">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="inputApellidos">Apellidos (*)</label>
-                                                <input type="text" class="form-control" id="inputApellidos" name="inputApellidos" placeholder="Apellidos" maxlength="60">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="inputNombres">Nombres (*)</label>
-                                                <input type="text" class="form-control" id="inputNombres" name="inputNombres" placeholder="Nombres" maxlength="60">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
+                                        <div class="row">
                                         <div class="col-lg-2 col-sm-6">
                                             <div class="form-group">
                                                 <label for="inputFecNac">Fech. Nacimiento</label>
@@ -175,23 +173,24 @@
                                     
                                     <div class="row">
                                         <div class="col-lg-12" id="msg">
-                                            
                                         </div>
                                     </div>
+                                    </div>
+
+                                    <div class="col-lg-2"></div>
                                 </div>
-                                <div class="col-lg-2"></div>
-                            </div>
 
+                            </section>
                         </div>
-                        <!-- /.card-body -->
-
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button onclick="actualizarPagina()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-danger"> <i class="fas fa-save"></i> Guardar</button>
-                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="actualizarPagina()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
             </div>
         </form>
+
     </div>
 </div>
