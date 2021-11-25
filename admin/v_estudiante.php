@@ -7,7 +7,6 @@ if (!isset($_SESSION["usuario"])  ) {
     header("Location:login.php");
 }else{
 
-
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +16,7 @@ if (!isset($_SESSION["usuario"])  ) {
     <!-- Basic Page Info -->
     <meta charset="utf-8">
     <title>Estudiantes</title>
+    <link rel="stylesheet" type="text/css" href="vendors/styles/style_img.css">
 
     <?php include_once './includes/s_head.php'; ?>
 
@@ -86,6 +86,10 @@ if (!isset($_SESSION["usuario"])  ) {
                             <button type="button" onclick="abrirModal()" class="btn btn-primary">
                                 <i class="micon dw dw-add"></i> Agregar
                             </button>
+
+                            <a href="../reports/rpt_estudiante_ccbd.php" target="_blank" class="btn btn-danger">
+                            <i class="icon-copy dw dw-print"></i> Imprimir
+                            </a>
                         </div>
 
                         <?php include_once './modales/m_estudiante.php'; ?>
@@ -124,8 +128,9 @@ if (!isset($_SESSION["usuario"])  ) {
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2" title="Actualizar"></i> Editar</a>
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3" title="Eliminar"></i> Eliminar</a>
+                                                    <a class="dropdown-item" onclick="editarEstudiante(<?php echo $row["idestudiante"] ?> )"  title="Actualizar"><i class="dw dw-edit2" title="Actualizar"></i> Editar</a>
+                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idestudiante"] ?> )"><i class="dw dw-delete-3" title="Eliminar"></i> Eliminar</a>
+                                                    <a class="dropdown-item" href="../reports/rpt_estudiante_ficha.php?idest=<?php echo $row["idestudiante"] ?> " target="_blank"><i class="icon-copy dw dw-print" title="Imprimir Estudiante"></i>Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -151,11 +156,9 @@ if (!isset($_SESSION["usuario"])  ) {
 
     <?php include_once './includes/s_js.php'; ?>
 
+
 </body>
 <script src="../js/js_estudiante.js"></script>
-
-
-</html>
 
 <?php 
 

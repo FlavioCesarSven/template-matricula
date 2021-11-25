@@ -28,8 +28,28 @@ class cEstudianteC
         $oEnt->setIdubigeo($_POST["inputUbigeo"]);
 
 
+        
+        if (!file_exists($_FILES['InputFile']['tmp_name'])|| !is_uploaded_file($_FILES['InputFile']['tmp_name']))
+        {
+            //Lineas para conservar la imagen inicial
+            //Imagen por defecto del INSERT
+           if ($_POST["inputAccion"]=="Insert")
+               $oEnt->setFoto_est("images/estudiantes/sin-foto.jpg");
+           if ($_POST["inputAccion"]=="Update")
+               $oEnt->setFoto_est($_POST["InputOculto"]);
+        }
+        else //Si se ha cargado imagen: INSERTAR
+        {
+            //INSERTAR: obtener el nombre del archivo
+            $name_pic=trim($_FILES['InputFile']['name']);
+            //subir el archivo al servidor
+            move_uploaded_file($_FILES['InputFile']['tmp_name'],'../images/estudiantes/'.$name_pic);
+            //asignamos a la Entidad para Guardar en la Tabla
+            $oEnt->setFoto_est('images/estudiantes/'.$name_pic);          
+        }
+
         //Imagen
-        $oEnt->setFoto_est("images/estudiantes/sin-foto.jpg");
+        // $oEnt->setFoto_est("images/estudiantes/sin-foto.jpg");
         //Captura Fecha Sistema segun Zona Horaria
         date_default_timezone_set('America/Lima');
         $oEnt->setFreg_est(date('Y-m-d H:i:s'));
@@ -50,6 +70,42 @@ class cEstudianteC
         //retornar Mensaje
         return $msg;
     }
+
+    function Update(cEstudianteE $oEnt) {
+        //crear un objeto a partir del modelo
+        $oMod = new cEstudianteM();
+        //Trasladar los datos al Modelo y se recepciona Mensaje
+        $msg = $oMod->Editar($oEnt);
+        //retornar Mensaje
+        return $msg;
+    }
+
+    function Delete($idprog) {
+        //crear un objeto a partir del modelo
+        $oMod = new cEstudianteM();
+        //Trasladar los datos al Modelo y se recepciona Mensaje
+        $msg = $oMod->Eliminar( $idprog );
+        //retornar Mensaje
+        return $msg;
+    }
+
+
+    function SelecById($idestu) {
+        //crear un objeto a partir del modelo
+        $oMod = new cEstudianteM();
+        //Trasladar los datos al Modelo y se recepciona Mensaje
+        $row = $oMod->SeleccionarxID( $idestu );
+        //retornar Mensaje
+        return $row;
+    }
+    function SelecById_Ficha($idestu) {
+        //crear un objeto a partir del modelo
+        $oMod = new cEstudianteM();
+        //Trasladar los datos al Modelo y se recepciona Mensaje
+        $row = $oMod->SeleccionarxID_Ficha( $idestu );
+        //retornar Mensaje
+        return $row;
+    }
 }
 
 
@@ -67,14 +123,14 @@ if (isset($_REQUEST["inputAccion"])) {
             break;
         case "Update":
             //print_r($_POST);
-            // echo $oCont->Update($oCont->getDataForm());
+            echo $oCont->Update($oCont->getDataForm());
             break;
         case "Delete":
-            // echo $oCont->Delete($_REQUEST["inputID"]);
+            echo $oCont->Delete($_REQUEST["inputID"]);
             break;
         case "SelectByID":
-            // $rpta = $oCont->SelecById($_REQUEST["inputID"]);
-            // echo json_encode($rpta);
+            $rpta = $oCont->SelecById($_REQUEST["inputID"]);
+            echo json_encode($rpta);
             break;
         
     }

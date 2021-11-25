@@ -7,6 +7,7 @@
         header("Location:login.php");
     }else{
 
+
 ?>
 
 
@@ -84,6 +85,10 @@
                             <button type="button" onclick="abrirModal()" class="btn btn-primary">
                                 <i class="micon dw dw-add"></i> Agregar
                             </button>
+
+                            <a href="../reports/rpt_programas_scbd2.php" target="_blank" class="btn btn-danger">
+                            <i class="icon-copy dw dw-print"></i> Imprimir
+                            </a>
                         </div>
 
                         <?php include_once './modales/m_programa.php'; ?>

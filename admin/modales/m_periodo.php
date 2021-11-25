@@ -25,7 +25,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="inputNombre">Nombres</label>
-                                            <input class="form-control" type="text" placeholder="Ingrese nombres" id="inputNombre" name="inputNombre">
+                                            <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre">
                                         </div>
                                     </div>
                                 </div>

@@ -20,6 +20,7 @@
                 <li><a href="v_periodo.php">Periodo Academico</a></li>
                 <li><a href="v_operador.php">Operador Telefonico</a></li>
                 <li><a href="v_programas.php">Programa de Estudios</a></li>
+                <!-- <li><a href="v_matricula.php">Matricula de Estudios</a></li> -->
             </ul>
         </li>
 

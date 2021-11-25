@@ -53,6 +53,10 @@
               <input id="InputPassword" type="password" class="form-control" placeholder="Ingrese Contraseña" maxlength="20">
             </div>
 
+            <div class="input-group" id="msg">
+
+            </div>
+
             <br>
 
             <div class="form-group">
@@ -317,7 +321,7 @@
   </svg>
 </body>
 
-<script src="vendors/scripts/login_scrip.js"></script>
 <script src="../js/js_usuario.js"></script>
+<script src="vendors/scripts/login_scrip.js"></script>
 
 </html>

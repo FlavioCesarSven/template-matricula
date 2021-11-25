@@ -1,5 +1,64 @@
 init()
-function init(){}
+function init(){
+    cargarImagen();
+}
+
+function cargarImagen()
+{
+    //mostrar u ocultar boton
+    $('#preview').hover(
+            function ()
+            {
+                $(this).find('a').fadeIn();//muestra
+            },
+            function ()
+            {
+                $(this).find('a').fadeOut(); //oculta
+            }
+    );
+    //abrir cuadro de dialogo utilizando el boton Cargar Imagen
+    $('#openFile').on('click', function (e)
+    {
+        e.preventDefault();
+        //al presionar el boton se abrira
+        //la ventana para seleccionar el archivo
+        $('#InputFile').click();//Examinar
+    }
+    );
+
+    //Vista Previa de la Imagen Seleccionada
+    $('input[type=file]').change(function ()
+    {
+        //obtener el nombre del archivo
+        var nameFile = (this.files[0].name).toString();
+        //obtener la extensión del archivo
+        var extensiones = nameFile.substring(nameFile.lastIndexOf("."));
+        //Preguntas si el tipo de archivo es diferente a los permitidos
+        if (extensiones != ".jpg" && extensiones != ".png")
+            //alert("El archivo de tipo: " + extensiones + " NO es válido");
+            Swal.fire({
+                icon: 'warning',
+                title: 'Sistema Académico',
+                text: 'El archivo de tipo: ' + extensiones + ' NO es válido!'
+            });
+        else //SI el archivo es valido
+        {
+            //Escribir el nombre del archivo en
+            $('#info_file').text('');
+            $('#info_file').text(nameFile);
+
+            //cargar la imagen en el preview
+            var reader = new FileReader();
+            reader.onload = function (e)
+            {
+                $('#preview img').attr('src', e.target.result);
+            }
+            //ejecutar la accion
+            reader.readAsDataURL(this.files[0]);
+        }
+    }
+    );
+}
 
 
 function abrirModal(){
@@ -98,34 +157,48 @@ function guardarRegistro(){
     return false;
 }
 
-function editarPrograma( idprog ){
+function editarEstudiante( idestu ){
 
     setTimeout( function () {
-        $('#inputNombre').focus();
+        $('#inputDni').focus();
     }, 1000 );
     
-    $('#titulo_ventana').text('Editar Programa');
-    var ruta = "../controller/cProgramasC.php";
+    $('#titulo_ventana').text('Editar Estudiante');
+    var ruta = "../controller/cEstudianteC.php";
     var accion = "SelectByID";
 
     $.ajax({
         type: 'POST',
         url: ruta,
-        data: 'inputAccion=' + accion + '&inputID='+ idprog,
+        data: 'inputAccion=' + accion + '&inputID='+ idestu,
         success: function (rpta)
         {
-
+            // alert( rpta );
             datos = JSON.parse( rpta );
 
-            $('#inputID').val( datos.idprograma );
-            $('#inputNombre').val( datos.nomb_pro );
-            $('#inputDesc').val( datos.desc_pro );
+            $('#inputID').val(datos.idestudiante);
+            $('#inputDni').val(datos.ndni_est);
+            $('#inputApellidos').val(datos.apel_est);
+            $('#inputNombres').val(datos.nomb_est);
+            $('#inputFecNac').val(datos.fnac_est);
+            $('#inputSexo').val(datos.sexo_est);
+            $('#inputDireccion').val(datos.dire_est);
+            $('#inputEmail').val(datos.cins_est);
+            $('#inputPrograma').val(datos.idprograma);
+            $('#inputOperador').val(datos.idoperador);
+            $('#inputMovil').val(datos.ncel_est);
+            $('#inputUbigeo').val(datos.idubigeo);
+            $('#inputUbigeo').selectpicker('refresh');
+            //recuperar imagen
+            $('#mi_imagen').attr('src', '../' + datos.foto_est);
+            $('#InputOculto').val(datos.foto_est);
 
-            if( datos.estd_pro == 'A' ){
+            //checkbox, se activa segun el valor del campo
+            if (datos.estd_est == 'A')
                 $('#inputEstado').attr('checked', true);
-            }else{
+            else
                 $('#inputEstado').attr('checked', false);
-            }
+
 
             $('#inputAccion').val('Update');
 
@@ -160,7 +233,7 @@ function eliminarRegistro(idprog){
       }).then((result) => {
         if (result.isConfirmed) {
         
-            var ruta = "../controller/cProgramasC.php";
+            var ruta = "../controller/cEstudianteC.php";
             var accion = "Delete";
 
             $.ajax({

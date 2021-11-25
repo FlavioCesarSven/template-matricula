@@ -1,0 +1,34 @@
+#preview
+{
+    position: relative;
+    max-height: 250px;
+}
+
+#preview a
+{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    display: none;
+}
+#preview img
+{
+    max-height: 230px;
+    width: auto;
+}
+
+input[type=file]
+{
+    position: absolute;    
+    width: 0;
+    visibility: hidden;
+    z-index: -9999;
+}
+#info_file
+{
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    max-width: auto;
+}
