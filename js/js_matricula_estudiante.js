@@ -134,8 +134,66 @@ function ActualizarDatos() {
         $('#openFile').focus();
         return false;
     }
+    Swal.fire({
+        title: 'Seguro de Guardar los cambios?',
+        text: "Sistema de Matricula",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.isConfirmed) {
+        
+            var ruta = "../controller/cMatriculaC.php";
+
+            $('#InputAccion').val("UpdateMat");
+            var formData = new FormData($('#frmMatricula')[0]);
+
+            $.ajax({
+                type: 'POST',
+                url: ruta,
+                data: formData,
+                contentType: false,
+                processData : false,
+                success: function (rpta){
+
+                    if (rpta =='OK') {
+                        Swal.fire({
+
+                         title: 'VRHT - Matricula',
+                         text: "Su PRE matricula ha sido registrado con exito, realizaremmos la validacion de los mismos para su RATIFICACION",
+                         icon: "success",
+                         confirmButtonColor: '#3085d6',
+                         confirmButtonText: 'Aceptar',
+                         allowEscapeKey: false,
+                         allowOutsideClick: false
+                        
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                            limpiarForm();
+                        }
+                      })
+                     }
+                     else {
+                         Swal.fire(
+                             'Error !!!',
+                             rpta,
+                             'warning'
+                         );
+                     }
+                }
+            });
+        }
+      });
 
     return false;
+}
+
+function limpiarForm(){
+    $('#frmMatricula')[0].reset();
 }
 
 
@@ -234,11 +292,13 @@ function buscarEstudiante()
                                 allowOutsideClick: false
                             });
                             // alert('');
+                            
                             $('#InputDNI').focus();
                         }
                     }
                 }
         );
+
         return false;
     }
 }

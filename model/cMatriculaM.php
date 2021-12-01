@@ -10,7 +10,6 @@ class cMatriculaM {
     function Listar(){
         $oConn = new connMySQL();
         $sql  = "select * from  v_matricula order by 1";
-        // $sql  = "select * from  v_estudiante_matricula order by 1";
 
         $result = $oConn->executeQuery($sql);
         return $result;
@@ -95,6 +94,32 @@ class cMatriculaM {
             return 'Error: '.$exc->getMessage();
         }
     } 
+
+    function Eliminar($idprog)
+    {
+        try // manejo de errores 
+        {
+            error_reporting(E_ALL & ~E_NOTICE);
+            $oConn = new connMysql();
+            //Creamos una variable para leer la ConexiÃ³n
+            $mysqli = $oConn->getConnection();
+            //sentencia SQL para insertar
+            $strSQL = "delete from tb_matricula where idmatricula=?";
+            //Preparar la Sentencia para su ejecuciÃ³n
+            $stmt = $mysqli->prepare($strSQL);
+            //Establecer o asignar los valores para los parametros a partir de la Entidad
+            $stmt->bind_param('i', $idprog);
+            //ejecuta la sentencia
+            $stmt->execute();
+            //********************************************
+            //cerrar conexiÃ³n
+            $mysqli->close();
+            //retornar
+            return "OK";
+        } catch (Exception $ex) {
+            return 'Error: ' . $ex->getMessage();
+        }
+    }
 
 
 

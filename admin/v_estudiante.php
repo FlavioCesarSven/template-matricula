@@ -130,7 +130,7 @@ if (!isset($_SESSION["usuario"])  ) {
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                                     <a class="dropdown-item" onclick="editarEstudiante(<?php echo $row["idestudiante"] ?> )"  title="Actualizar"><i class="dw dw-edit2" title="Actualizar"></i> Editar</a>
                                                     <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idestudiante"] ?> )"><i class="dw dw-delete-3" title="Eliminar"></i> Eliminar</a>
-                                                    <a class="dropdown-item" href="../reports/rpt_estudiante_ficha.php?idest=<?php echo $row["idestudiante"] ?> " target="_blank"><i class="icon-copy dw dw-print" title="Imprimir Estudiante"></i>Eliminar</a>
+                                                    <a class="dropdown-item" href="../reports/rpt_estudiante_ficha.php?idest=<?php echo $row["idestudiante"] ?> " target="_blank"><i class="icon-copy dw dw-print" title="Imprimir Estudiante"></i>Imprimir</a>
                                                 </div>
                                             </div>
                                         </td>

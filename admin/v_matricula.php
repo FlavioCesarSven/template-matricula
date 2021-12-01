@@ -87,9 +87,9 @@ else{
                         
                     <!-- Button trigger modal -->
                     <div class="text-right" style="margin-bottom: 10px; margin-right: 10px;">
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#w_programa">
-                            <i class="micon dw dw-add"></i> Agregar
-                        </button> -->
+                    <!-- <button type="button" onclick="abrirModal()" class="btn btn-primary">
+                                <i class="micon dw dw-add"></i> Agregar
+                    </button> -->
                     </div>
                     <?php include_once './modales/m_matricula.php'; ?>
                         <table class="table  data-table-export wrap">
@@ -103,7 +103,7 @@ else{
                                     <th>Celular</th>
                                     <th>Operador</th>
                                     <th>Ubigeo</th>
-                                    <!-- <th class="datatable-nosort">Opciones</th> -->
+                                    <th class="datatable-nosort">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,17 +121,18 @@ else{
                                         <td><?php echo $row["ncel_est"] ?></td>
                                         <td><?php echo $row["nomb_ope"] ?></td>
                                         <td><?php echo $row["UBIGEO"] ?></td>
-                                        <!-- <td>
+                                        <td>
                                             <div class="dropdown">
                                                 <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                                                    <!-- <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a> -->
+                                                    <a class="dropdown-item" onclick="eliminarRegistro( <?php echo $row["idmatricula"] ?> )" title="Eliminar <?php echo $row["ESTUDIANTE"] ?>" style="cursor: pointer;"><i class="dw dw-delete-3"></i> Eliminar</a>
+
                                                 </div>
                                             </div>
-                                        </td> -->
+                                        </td>
                                     </tr>
                                 <?php
                                 }
@@ -157,7 +158,7 @@ else{
     <?php include_once './includes/s_js.php'; ?>
 
 </html>
-
+<script src="../js/js_matricula.js"></script>
 
 <?php 
 

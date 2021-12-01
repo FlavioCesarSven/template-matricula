@@ -1,3 +1,18 @@
+<!-- <?php 
+
+// ob_start();
+session_start();
+
+if (!isset($_SESSION["usuario"])  ) {
+    header("Location:login.php");
+}
+
+else{
+
+  
+?> -->
+
+
 <!DOCTYPE html>
 <html>
 
@@ -133,3 +148,10 @@
     <script src="../js/js_operador.js"></script>
 
 </html>
+
+
+<?php 
+
+} ob_end_flush();
+
+?>

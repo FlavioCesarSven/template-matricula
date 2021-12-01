@@ -85,6 +85,15 @@ function UpdateMatricula(cMatriculaE $oEnt)
     return $oMod->ActualizarMatricula($oEnt);
 }
 
+function Delete($idprog) {
+    //crear un objeto a partir del modelo
+    $oMod = new cMatriculaM();
+    //Trasladar los datos al Modelo y se recepciona Mensaje
+    $msg = $oMod->Eliminar( $idprog );
+    //retornar Mensaje
+    return $msg;
+}
+
 }
 
 
@@ -99,7 +108,13 @@ if (isset($_REQUEST["InputAccion"])) {
 
 
         case "UpdateMat":
+            // print_r($_REQUEST);
             $oCont->UpdateEstudiante($oCont->getFormularioEstudiante());
+            echo $oCont->UpdateMatricula($oCont->getFormularioMatricula());
+            break;
+
+        case "Delete":
+            echo $oCont->Delete($_REQUEST["inputID"]);
             break;
                 
         case "SelectByDni":
